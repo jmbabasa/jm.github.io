@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Portfolio Website-Brad</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- linking css file -->
+  <!-- bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/31149d48b0.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    /* Navbar styling */
+.navbar {
+    background-color: #333;
+    height: 60px;
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 18px;
+    padding: 0 15px;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #fff;
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #fff;
+  }
+  
+  @media (max-width: 991px) {
+    .navbar-nav {
+      background-color: #333;
+      position: absolute;
+      right: 0;
+      top: 60px;
+      width: 100%;
+      height: calc(100vh - 60px);
+      z-index: 99;
+      padding: 15px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .navbar-nav.show {
+      transform: translateX(0);
+    }
+  
+    .navbar-nav .nav-item {
+      display: block;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  
+    .navbar-nav .nav-link {
+      font-size: 24px;
+      padding: 10px 0;
+    }
+  }
+  /* Main banner styling */
+.bgimage {
+    background-image: url(jmb.jpg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-text {
+    text-align: center;
+    color: #0c0c0c;
+    padding: 20px;
+  }
+  
+  .hero_title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .hero_desc {
+    font-size: 30px;
+    font-weight: 300;
+  }
+  /* About section styling */
+#about {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+  }
+  
+  .imageAboutPage {
+    width: 100%;
+    height: auto;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
+  @media (min-width: 768px) {
+    .imageAboutPage {
+      width: 80%;
+    }
+  }
+/* Services section */
+#services {
+    background-color: #f5f5f5;
+    padding: 80px 0;
+  }
+  
+  /* Services title */
+  #services h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  
+  /* Services cards */
+  .servicesText {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  /* Services icons */
+  .servicesIcon {
+    color: #4caf50;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  /* Services card title */
+  .servicesText .card-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Services card text */
+  .servicesText .card-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  /* Services cards hover */
+  .servicesText:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+/* Portfolio Section */
+#activities {
+    background-color: #f5f5f5;
+    padding: 80px 0;
+  }
+  
+  #activities h1 {
+    margin-bottom: 50px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .portfolioContent {
+    height: 400px;
+  }
+  
+  .portfolioContent:hover {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+  }
+  
+  .card-img-top {
+    height: 220px;
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .card-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border: none;
+    padding: 10px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  
+/* Contact Section */
+#contact {
+    padding: 100px 0;
+    background-color: #f9f9f9;
+  }
+  
+  .contactContent {
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    padding: 30px;
+  }
+  
+  .contactContent h1 {
+    font-size: 42px;
+    margin-bottom: 30px;
+  }
+  
+  .contactContent form {
+    margin-top: 30px;
+  }
+  
+  .contactContent input[type=text], 
+  .contactContent input[type=email], 
+  .contactContent textarea {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+    transition: border-bottom-color 0.3s ease;
+  }
+  
+  .contactContent input[type=text]:focus, 
+  .contactContent input[type=email]:focus, 
+  .contactContent textarea:focus {
+    outline: none;
+    border-bottom-color: #6c5ce7;
+  }
+  
+  .contactContent textarea {
+    height: 150px;
+  }
+  
+  .contactContent button {
+    background-color: #6c5ce7;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contactContent button:hover {
+    background-color: #5348c1;
+  }
+  
+  /* Google Maps */
+  .googlecoder {
+    display: none;
+  }
+  
+  #google-maps-canvas {
+    position: relative;
+    overflow: hidden;
+    padding-top: 100%; /* this is the aspect ratio */
+    height: 0;
+    width: 100%;
+  }
+  
+  #google-maps-canvas iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 0;
+  }
+  #footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .social-icons a:hover {
+    color: #55acee;
+  }
+  
+  footer p {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  footer p a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  footer p a:hover {
+    color: #55acee;
+    text-decoration: underline;
+  }
+    
+</style>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbarScroll">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Personal Website</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#activities">My Activities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+    <!-- main banner -->
+    <section class="bgimage" id="home">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
+                <h2 class="hero_title">Hi, I am Jhon Mark</h2>
+                <p class="hero_desc">Welcome to My Website</p>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- about section-->
+    <section id="about">
+        <div class="container mt-4 pt-4">
+            <h1 class="text-center">About Me</h1>
+            <div class="row mt-4">
+                <div class="col-lg-4">
+                    <img src="jhon.jpg.jpg" class= "imageAboutPage" alt="">
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Name: Jhon Mark Babasa</li>
+                                <li>Age: 22</li>
+                                <li>Occupation: Student</li>
+
+                            </ul>
+                        </div>
+            
+                    <div class="row mt-3">
+                        <p>Hello, everyone. My name is Jhon Mark Babasa, and I am currently an IT student. I have always been passionate about technology and its endless possibilities. That is why I chose to pursue a career in the IT industry. I am constantly looking for ways to expand my knowledge and skills in various areas such as software development, web development, and cybersecurity.
+
+                            Aside from my academic pursuits, I also enjoy exploring different hobbies such as photography and playing video games. I believe that having a balance between work and play is essential for a healthy lifestyle. 
+                            
+                            I am excited to see where my IT journey takes me and look forward to the endless possibilities that await me in this ever-evolving field.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- services section-->
+    <section id="skills">
+        <div class="container">
+            <h1 class="text-center">Skills</h1>
+            <div class="row">
+                <div class="col-lg-4 mt-4">
+                    <div class="card servicesText">
+                        <div class="card-body">
+                            <i class="fas servicesIcon fa-clock"></i>
+                            <h4 class="card-title mt-3">Website Development</h4>
+                            <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.
+                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                            </p>
+                        </div>
+                    </div>  
+                </div>
+                <div class="col-lg-4 mt-4">
+                    <div class="card servicesText">
+                        <div class="card-body">
+                            <i class='fas servicesIcon fa-layer-group'></i>
+                            <h4 class="card-title mt-3">Website Design</h4>
+                            <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.
+                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                            </p>
+                        </div>
+                    </div>  
+                </div>
+
+                <div class="col-lg-4 mt-4">
+                    <div class="card servicesText">
+                        <div class="card-body">
+                            <i class='far servicesIcon fa-check-circle'></i>
+                            <h4 class="card-title mt-3">Website Deployment</h4>
+                            <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.
+                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                            </p>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 mt-4">
+                    <div class="card servicesText">
+                        <div class="card-body">
+                            <i class='fas servicesIcon fa-search'></i>
+                            <h4 class="card-title mt-3">SEO</h4>
+                            <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.
+                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                            </p>
+                        </div>
+                    </div>  
+                </div>
+
+                <div class="col-lg-4 mt-4">
+                    <div class="card servicesText">
+                        <div class="card-body">
+                            <i class='fas servicesIcon fa-shield-alt'></i>
+                            <h4 class="card-title mt-3">DevOps</h4>
+                            <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.
+                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                            </p>
+                        </div>
+                    </div>  
+                </div>
+
+                <div class="col-lg-4 mt-4">
+                    <div class="card servicesText">
+                        <div class="card-body">
+                            <i class='fas servicesIcon fa-wrench'></i>
+                            <h4 class="card-title mt-3">QA</h4>
+                            <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.
+                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                            </p>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- portfolio section-->
+    <section id="activities">
+        <div class="container mt-3">
+            <h1 class="text-center">Activities</h1>
+            <div class="row">
+                <div class="col-lg-4 mt-4">
+                    <div class="card">
+                        <img class="card-img-top" src="css.jpg.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">CSS Tutorial</h4>
+                            <div class="text-center">
+                                <a href="css.html" class="btn btn-success">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4">
+                    <div class="card portfolioContent">
+                        <img class="card-img-top" src="criptocurrency.jpg.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">Cryptocurrency</h4>
+                            <div class="text-center">
+                                <a href="jm.html" class="btn btn-success">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4">
+                    <div class="card portfolioContent">
+                        <img class="card-img-top" src="onclick.jpg.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">Onclick</h4>
+                            <div class="text-center">
+                                <a href="onclickk.html" class="btn btn-success">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 mt-4">
+                    <div class="card portfolioContent">
+                        <img class="card-img-top" src="javascript.jpg.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">JavaScripts Output</h4>
+                            <p class="card-text"></p>
+                            <div class="text-center">
+                                <a href="javascriptoutput.html" class="btn btn-success">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4">
+                    <div class="card portfolioContent">
+                        <img class="card-img-top" src="htmlevents.jpg.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">HTML Events</h4>
+                            <div class="text-center">
+                                <a href="htmlevents.html" class="btn btn-success">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-4 mt-4">
+                  <div class="card portfolioContent">
+                      <img class="card-img-top" src="login.jpg.jpg" alt="Card image" style="width:100%">
+                      <div class="card-body">
+                          <h4 class="card-title">Login</h4>
+                          <div class="text-center">
+                              <a href="login.html" class="btn btn-success">Link</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              
+              <div class="col-lg-4 mt-4">
+                <div class="card portfolioContent">
+                    <img class="card-img-top" src="calculator.jpg.jpg" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">Calculator</h4>
+                        <div class="text-center">
+                            <a href="calculator.html" class="btn btn-success">Link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="col-lg-4 mt-4">
+                    <div class="card portfolioContent">
+                        <img class="card-img-top" src="personal.jpg.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">Personal Info</h4>
+                            <div class="text-center">
+                                <a href="Personal info.html" class="btn btn-success">Link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- contact section-->
+    <section id="contact">
+        <div class="container mt-3 contactContent">
+            <h1 class="text-center">Contact Me</h1>
+
+
+                <div class="col-lg-6">
+                    <!-- form fields -->
+                    <form>
+                        <input type="text" class="form-control form-control-lg" placeholder="Name">
+                        <input type="email" class="form-control mt-3" placeholder="Email">
+                        <div class="mb-3 mt-3">
+                            <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Description"></textarea>
+                        </div>
+                    </form>
+                    <button type="button" class="btn btn-success mt-3">Contact Me</button>
+                    
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- footer section-->
+    <footer id="footer">
+        <div class="container-fluid">
+            <!-- social media icons -->
+            <div class="social-icons mt-4">
+                <a href="https://www.facebook.com/jhonmark.babasa.77?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.twitch.tv/" target="_blank"><i class="fab fa-twitch"></i></a>
+            </div>
+        </div>
+        <center> <p>&copy; Copyright 2023 My Personal Website. All Rights Reserved.</p></center>
+    </footer>
+
+    <!-- load javascript after loading all html content -->
+    <script src="script/script.js"></script>
+
+</body>
+
+</html>
